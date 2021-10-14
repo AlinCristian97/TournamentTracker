@@ -25,6 +25,15 @@ namespace TrackerUI
                 {
                     dataConnection.CreatePrize(model);
                 }
+
+                placeNameValue.Text = "";
+                placeNumberValue.Text = "";
+                prizeAmountValue.Text = "0";
+                prizePercentageValue.Text = "0";
+            }
+            else
+            {
+                MessageBox.Show("This form has invalid information. Please check it and try again.");
             }
         }
 
@@ -57,6 +66,11 @@ namespace TrackerUI
             }
 
             if (prizeAmount <= 0 && prizePercentage <= 0)
+            {
+                output = false;
+            }
+
+            if (prizeAmount > 0 && prizePercentage > 0)
             {
                 output = false;
             }
