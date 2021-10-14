@@ -267,7 +267,7 @@ namespace TrackerUI
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "CreateTournamentForm";
-            this.Text = "CreateTournamentForm";
+            this.Text = "Create Tournament";
             this.ResumeLayout(false);
             this.PerformLayout();
         }
