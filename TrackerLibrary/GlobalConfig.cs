@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TrackerLibrary.DataAccess;
 
 namespace TrackerLibrary
 {
@@ -11,14 +12,14 @@ namespace TrackerLibrary
             if (database)
             {
                 //TODO - Set up the SQL connection properly
-                var sql = new SqlConnection();
+                var sql = new SqlConnector();
                 Connections.Add(sql);
             }
 
             if (textFiles)
             {
                 //TODO - Create the text connection
-                var text = new TextConnection();
+                var text = new TextConnector();
                 Connections.Add(text);
             }
         }

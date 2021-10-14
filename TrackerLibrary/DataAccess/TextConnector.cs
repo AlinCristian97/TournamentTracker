@@ -1,6 +1,8 @@
-﻿namespace TrackerLibrary
+﻿using TrackerLibrary.Models;
+
+namespace TrackerLibrary.DataAccess
 {
-    public class TextConnection : IDataConnection
+    public class TextConnector : IDataConnection
     {
         //TODO - Wire up this method for text files.
         /// <summary>

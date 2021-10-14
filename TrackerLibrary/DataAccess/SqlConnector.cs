@@ -1,6 +1,8 @@
-﻿namespace TrackerLibrary
+﻿using TrackerLibrary.Models;
+
+namespace TrackerLibrary.DataAccess
 {
-    public class SqlConnection : IDataConnection
+    public class SqlConnector : IDataConnection
     {
         //TODO - Make the method actually save to the database
         /// <summary>
