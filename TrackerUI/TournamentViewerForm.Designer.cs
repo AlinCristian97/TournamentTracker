@@ -216,52 +216,30 @@
 
         private System.Windows.Forms.Button scoreButton;
 
-        private System.Windows.Forms.Button button1;
-
         private System.Windows.Forms.Label versusLabel;
-
-        private System.Windows.Forms.Label vsLabel;
 
         private System.Windows.Forms.TextBox teamTwoScoreValue;
         private System.Windows.Forms.Label teamTwoScoreLabel;
 
         private System.Windows.Forms.Label teamTwoNameLabel;
 
-        private System.Windows.Forms.Label label2;
-
         private System.Windows.Forms.TextBox teamOneScoreValue;
-
-        private System.Windows.Forms.TextBox teamOneScoreText;
-
-        private System.Windows.Forms.TextBox textBox1;
 
         private System.Windows.Forms.Label teamOneScoreLabel;
 
-        private System.Windows.Forms.Label label1;
-
         private System.Windows.Forms.Label teamOneNameLabel;
 
-        private System.Windows.Forms.Label teamOneName;
-
         private System.Windows.Forms.ListBox matchupListBox;
-
-        private System.Windows.Forms.ListBox listBox1;
 
         private System.Windows.Forms.ComboBox roundDropdown;
 
         private System.Windows.Forms.CheckBox unplayedOnlyCheckbox;
-
-        private System.Windows.Forms.CheckBox checkBox1;
-
-        private System.Windows.Forms.ComboBox comboBox1;
 
         private System.Windows.Forms.Label roundLabel;
 
         private System.Windows.Forms.Label tournamentName;
 
         private System.Windows.Forms.Label headerLabel;
-
-        private System.Windows.Forms.Label H;
 
         #endregion
     }
