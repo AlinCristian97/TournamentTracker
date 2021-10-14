@@ -1,6 +1,7 @@
 ﻿namespace TrackerLibrary
 {
-    public class Class1
+    public class TeamModel
     {
+        
     }
 }
