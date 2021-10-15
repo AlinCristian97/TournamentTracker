@@ -1,10 +1,14 @@
-﻿using TrackerLibrary.Models;
+﻿using System.Collections.Generic;
+using System.Linq;
+using TrackerLibrary.DataAccess.TextHelpers;
+using TrackerLibrary.Models;
 
 namespace TrackerLibrary.DataAccess
 {
     public class TextConnector : IDataConnection
     {
-        //TODO - Wire up this method for text files.
+        private const string PrizesFile = "PrizeModels.csv";
+
         /// <summary>
         /// Saves a new prize to the text file.
         /// </summary>
@@ -12,9 +16,18 @@ namespace TrackerLibrary.DataAccess
         /// <returns>The prize information, including the unique identifier.</returns>
         public PrizeModel CreatePrize(PrizeModel model)
         {
-                        
+            List<PrizeModel> prizes = PrizesFile.FullFilePath().LoadFile().ConvertToPrizeModels();
+
+            int currentId = 1;
+            if (prizes.Count > 0)
+            {
+                currentId = prizes.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+            model.Id = currentId;
+
+            prizes.Add(model);
             
-            // model.Id = 1;
+            prizes.SaveToPrizeFile(PrizesFile);
 
             return model;
         }
