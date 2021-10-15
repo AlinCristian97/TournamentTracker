@@ -25,6 +25,11 @@ namespace TrackerUI
                 };
 
                 GlobalConfig.Connection.CreatePerson(p);
+
+                firstNameValue.Text = "";
+                lastNameValue.Text = "";
+                emailValue.Text = "";
+                phoneNumberValue.Text = "";
             }
             else
             {
