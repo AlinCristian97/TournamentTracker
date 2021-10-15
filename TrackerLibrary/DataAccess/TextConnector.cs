@@ -31,5 +31,12 @@ namespace TrackerLibrary.DataAccess
 
             return model;
         }
+
+        public PersonModel CreatePerson(PersonModel model)
+        {
+
+
+            return model;
+        }
     }
 }
