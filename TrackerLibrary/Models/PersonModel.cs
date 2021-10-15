@@ -29,5 +29,7 @@
         /// The primary phone number of the person.
         /// </summary>
         public string PhoneNumber { get; set; }
+
+        public string FullName => $"{FirstName} {LastName}";
     }
 }
