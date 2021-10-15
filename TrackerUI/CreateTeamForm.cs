@@ -54,7 +54,11 @@ namespace TrackerUI
                     PhoneNumber = phoneNumberValue.Text
                 };
 
-                GlobalConfig.Connection.CreatePerson(p);
+                p = GlobalConfig.Connection.CreatePerson(p);
+                
+                _selectedTeamMembers.Add(p);
+            
+                WireUpLists();
 
                 firstNameValue.Text = "";
                 lastNameValue.Text = "";
@@ -91,15 +95,31 @@ namespace TrackerUI
 
             return true;
         }
-
+        
         private void addMemberButton_Click(object sender, EventArgs e)
         {
             var p = (PersonModel)selectTeamMemberDropdown.SelectedItem;
 
-            _availableTeamMembers.Remove(p);
-            _selectedTeamMembers.Add(p);
+            if (p != null)
+            {
+                _availableTeamMembers.Remove(p);
+                _selectedTeamMembers.Add(p);
             
-            WireUpLists();
+                WireUpLists();
+            }
+        }
+
+        private void removeSelectedButton_Click(object sender, EventArgs e)
+        {
+            var p = (PersonModel)teamMembersListBox.SelectedItem;
+
+            if (p != null)
+            {
+                _selectedTeamMembers.Remove(p);
+                _availableTeamMembers.Add(p);
+            
+                WireUpLists();
+            }
         }
     }
 }
