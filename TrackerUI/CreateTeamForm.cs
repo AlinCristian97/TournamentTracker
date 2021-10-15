@@ -32,6 +32,9 @@ namespace TrackerUI
 
         private void WireUpLists()
         {
+            selectTeamMemberDropdown.DataSource = null;
+            teamMembersListBox.DataSource = null;
+            
             selectTeamMemberDropdown.DataSource = _availableTeamMembers;
             selectTeamMemberDropdown.DisplayMember = "FullName";
 
@@ -87,6 +90,16 @@ namespace TrackerUI
             }
 
             return true;
+        }
+
+        private void addMemberButton_Click(object sender, EventArgs e)
+        {
+            var p = (PersonModel)selectTeamMemberDropdown.SelectedItem;
+
+            _availableTeamMembers.Remove(p);
+            _selectedTeamMembers.Add(p);
+            
+            WireUpLists();
         }
     }
 }
