@@ -10,6 +10,7 @@ namespace TrackerLibrary.DataAccess
         private const string PrizesFile = "PrizeModels.csv";
         private const string PeopleFile = "PersonModels.csv";
         private const string TeamsFile = "TeamModels.csv";
+        private const string TournamentsFile = "TournamentModels.csv";
 
         /// <summary>
         /// Saves a new prize to the text file.
@@ -84,7 +85,12 @@ namespace TrackerLibrary.DataAccess
 
         public TournamentModel CreateTournament(TournamentModel model)
         {
-            throw new System.NotImplementedException();
+            List<TournamentModel> tournaments = TournamentsFile
+                .FullFilePath()
+                .LoadFile()
+                .ConvertToTournamentModels(TeamsFile, PeopleFile, PrizesFile);
+            
+            return model;
         }
     }
 }
