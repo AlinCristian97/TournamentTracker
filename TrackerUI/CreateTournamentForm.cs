@@ -74,5 +74,30 @@ namespace TrackerUI
             var form = new CreateTeamForm(this);
             form.Show();
         }
+
+        private void removeSelectedTeamButton_Click(object sender, EventArgs e)
+        {
+            var t = (TeamModel)tournamentTeamsListBox.SelectedItem;
+
+            if (t != null)
+            {
+                _selectedTeams.Remove(t);
+                _availableTeams.Add(t);
+            
+                WireUpLists();
+            }
+        }
+
+        private void removeSelectedPrizeButton_Click(object sender, EventArgs e)
+        {
+            var p = (PrizeModel)prizesListBox.SelectedItem;
+
+            if (p != null)
+            {
+                _selectedPrizes.Remove(p);
+                
+                WireUpLists();
+            }
+        }
     }
 }
