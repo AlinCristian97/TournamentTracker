@@ -32,14 +32,16 @@ namespace TrackerUI
 
         private void WireUpLists()
         {
+            const string displayMember = "FullName";
+
             selectTeamMemberDropdown.DataSource = null;
             teamMembersListBox.DataSource = null;
             
             selectTeamMemberDropdown.DataSource = _availableTeamMembers;
-            selectTeamMemberDropdown.DisplayMember = "FullName";
+            selectTeamMemberDropdown.DisplayMember = displayMember;
 
             teamMembersListBox.DataSource = _selectedTeamMembers;
-            teamMembersListBox.DisplayMember = "FullName";
+            teamMembersListBox.DisplayMember = displayMember;
         }
 
         private void createMemberButton_Click(object sender, EventArgs e)
