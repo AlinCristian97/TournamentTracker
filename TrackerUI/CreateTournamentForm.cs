@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using TrackerLibrary;
 using TrackerLibrary.Models;
@@ -15,13 +16,17 @@ namespace TrackerUI
         {
             InitializeComponent();
 
-            InitializeLists();
+            WireUpLists();
         }
 
-        private void InitializeLists()
+        private void WireUpLists()
         {
             const string teamsDisplayMember = "TeamName";
             const string prizesDisplayMember = "PlaceName";
+
+            selectTeamDropdown.DataSource = null;
+            tournamentTeamsListBox.DataSource = null;
+            prizesListBox.DataSource = null;
             
             selectTeamDropdown.DataSource = _availableTeams;
             selectTeamDropdown.DisplayMember = teamsDisplayMember;
@@ -31,6 +36,19 @@ namespace TrackerUI
 
             prizesListBox.DataSource = _selectedPrizes;
             prizesListBox.DisplayMember = prizesDisplayMember;
+        }
+
+        private void addTeamButton_Click(object sender, EventArgs e)
+        {
+            var t = (TeamModel)selectTeamDropdown.SelectedItem;
+
+            if (t != null)
+            {
+                _availableTeams.Remove(t);
+                _selectedTeams.Add(t);
+            
+                WireUpLists();
+            }
         }
     }
 }
