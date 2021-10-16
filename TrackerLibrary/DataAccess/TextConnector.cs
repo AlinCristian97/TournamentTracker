@@ -75,6 +75,7 @@ namespace TrackerLibrary.DataAccess
 
             teams.SaveToTeamsFile(TeamsFile);
 
+            //TODO - decide if we keep the return type
             return model;
         }
 
@@ -83,14 +84,24 @@ namespace TrackerLibrary.DataAccess
             return TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
         }
 
-        public TournamentModel CreateTournament(TournamentModel model)
+        public void CreateTournament(TournamentModel model)
         {
             List<TournamentModel> tournaments = TournamentsFile
                 .FullFilePath()
                 .LoadFile()
                 .ConvertToTournamentModels(TeamsFile, PeopleFile, PrizesFile);
             
-            return model;
+            int currentId = 1;
+            if (tournaments.Count > 0)
+            {
+                currentId = tournaments.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+
+            model.Id = currentId;
+            
+            tournaments.Add(model);
+
+            tournaments.SaveToTournamentsFile(TournamentsFile);
         }
     }
 }
