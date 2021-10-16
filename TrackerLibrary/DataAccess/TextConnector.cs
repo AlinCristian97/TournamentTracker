@@ -79,7 +79,7 @@ namespace TrackerLibrary.DataAccess
 
         public List<TeamModel> GetTeams()
         {
-            throw new System.NotImplementedException();
+            return TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
         }
     }
 }
