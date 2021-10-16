@@ -56,5 +56,11 @@ namespace TrackerLibrary.DataAccess
         {
             return PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
         }
+
+        public TeamModel CreateTeam(TeamModel model)
+        {
+            //TODO
+            throw new System.NotImplementedException();
+        }
     }
 }
